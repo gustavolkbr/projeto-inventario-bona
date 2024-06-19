@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #FFF9D0;
+    font-size: 16px;
+}
+
+#nav-superior{
+    text-align: center;
+    padding: 30px;
+    background-color: #A0DEFF;
+}
+
+#nav-superior a{
+    text-decoration: none;
+    padding: 20px;
+    font-size: 2em;
+}
+
+
+#principal{
+    margin: auto;
+    width: 1600px;
+    background-color: azure;
+}
+
+.container {
+    padding: 2rem 0rem;
+  }
+  
+h4 {
+    margin: 2rem 0rem 1rem;
+  }
+  
+.table-image {
+    td, th {
+      vertical-align: middle;
+    }
+  }
