@@ -18,6 +18,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
+                    <h2>Lista de Produtos</h2>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -34,14 +35,13 @@
                             <?php
                             include 'config.php';
 
-                            // Consulta SQL para buscar os produtos com suas categorias
+                            // Consulta SQL para buscar todos os produtos
                             $sql = "SELECT p.id, p.nome_produto, p.descricao_produto, p.quantidade, p.preco, c.nome_categoria
                                     FROM produtos p
-                                    INNER JOIN categorias c ON p.categoria_id = c.ID";
+                                    LEFT JOIN categorias c ON p.categoria_id = c.ID";
                             $result = $conn->query($sql);
 
                             if ($result->num_rows > 0) {
-                                // Exibir os produtos encontrados
                                 while ($row = $result->fetch_assoc()) {
                                     echo '<tr>';
                                     echo '<th scope="row">' . $row['id'] . '</th>';
@@ -51,13 +51,19 @@
                                     echo '<td>' . $row['preco'] . '</td>';
                                     echo '<td>' . $row['nome_categoria'] . '</td>';
                                     echo '<td>
-                                            <button type="button" class="btn btn-success">Atualizar <i class="fas fa-edit"></i></button>
-                                            <button type="button" class="btn btn-danger">Deletar <i class="far fa-trash-alt"></i></button>
+                                            <form action="update_process.php" method="post" style="display: inline-block;">
+                                                <input type="hidden" name="id" value="' . $row['id'] . '">
+                                                <button type="submit" class="btn btn-success">Editar <i class="fas fa-edit"></i></button>
+                                            </form>
+                                            <form action="delete.php" method="get" style="display: inline-block;">
+                                                <input type="hidden" name="id" value="' . $row['id'] . '">
+                                                <button type="submit" class="btn btn-danger" onclick="return confirm(\'Tem certeza que deseja deletar este produto?\')">Deletar <i class="far fa-trash-alt"></i></button>
+                                            </form>
                                           </td>';
                                     echo '</tr>';
                                 }
                             } else {
-                                echo '<tr><td colspan="7">Nenhum produto encontrado</td></tr>';
+                                echo '<tr><td colspan="7">Nenhum produto encontrado.</td></tr>';
                             }
 
                             $conn->close();
