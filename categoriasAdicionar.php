@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Biblioteca</title>
+    <title>Inventario</title>
 </head>
 <body>
     <div id="nav-superior">
@@ -16,10 +16,10 @@
     </div>
     <div id="principal">
         <div class="conteudo-produtos">
-            <div class="cadastrar-produto">
+            <div class="cadastrar-categoria">
                 <form action="create_categoria.php" method="post" >
                     <div class="form-group">
-                      <label for="exampleInputPassword1">Nome do Produto</label>
+                      <label for="exampleInputPassword1">Nome da categoria</label>
                       <input name="nome_categoria" type="text" class="form-control" id="exampleInputPassword1" placeholder="Nome do produto">
                     </div>
                     <div class="form-group">

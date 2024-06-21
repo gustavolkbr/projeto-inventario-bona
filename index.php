@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Biblioteca</title>
+    <title>Inventario</title>
 </head>
 <body>
     <div id="nav-superior">
@@ -50,16 +50,14 @@
                                     echo '<td>' . $row['quantidade'] . '</td>';
                                     echo '<td>' . $row['preco'] . '</td>';
                                     echo '<td>' . $row['nome_categoria'] . '</td>';
+                                    // Dentro do loop while ($row = $result->fetch_assoc()) {
                                     echo '<td>
-                                            <form action="update_process.php" method="post" style="display: inline-block;">
-                                                <input type="hidden" name="id" value="' . $row['id'] . '">
-                                                <button type="submit" class="btn btn-success">Editar <i class="fas fa-edit"></i></button>
-                                            </form>
+                                            <a href="update.php?id=' . $row['id'] . '" class="btn btn-success">Editar <i class="fas fa-edit"></i></a>
                                             <form action="delete.php" method="get" style="display: inline-block;">
                                                 <input type="hidden" name="id" value="' . $row['id'] . '">
                                                 <button type="submit" class="btn btn-danger" onclick="return confirm(\'Tem certeza que deseja deletar este produto?\')">Deletar <i class="far fa-trash-alt"></i></button>
                                             </form>
-                                          </td>';
+                                            </td>';
                                     echo '</tr>';
                                 }
                             } else {
